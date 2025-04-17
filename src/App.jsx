@@ -1,11 +1,12 @@
 import React from "react";
 import CardList from "./components/CardList/CardList";
+import { Container, Typography } from "@mui/material";
 
 const cardsData = [
   {
     id: 1,
     title: "Таємнича вежа",
-    description: "старовинна кам'яна вежа, що височіє над зеленим пагорбом під безкраїм блакитним небом.",
+    description: "Старовинна кам'яна вежа, що височіє над зеленим пагорбом під безкраїм блакитним небом.",
     image: "https://i.postimg.cc/prcHtCvn/14.jpg"
   },
   {
@@ -24,10 +25,12 @@ const cardsData = [
 
 const App = () => {
   return (
-    <div>
-      <h1 style={{ textAlign: "center" }}>Галерея карток</h1>
+    <Container maxWidth="md">
+      <Typography variant="h3" align="center" gutterBottom sx={{ marginTop: 4 }}>
+        Галерея карток
+      </Typography>
       <CardList cards={cardsData} />
-    </div>
+    </Container>
   );
 };
 

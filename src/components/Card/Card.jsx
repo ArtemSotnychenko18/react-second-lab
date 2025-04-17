@@ -1,5 +1,5 @@
 import React from "react";
-import "./Card.css";
+import { Card as MUICard, CardContent, CardMedia, Typography, Button } from "@mui/material";
 
 const Card = ({ title, description, image }) => {
   const handleClick = () => {
@@ -7,12 +7,34 @@ const Card = ({ title, description, image }) => {
   };
 
   return (
-    <div className="card">
-      <img src={image} alt={title} className="card-image" />
-      <h2 className="card-title">{title}</h2>
-      <p className="card-description">{description}</p>
-      <button onClick={handleClick} className="card-button">Нажми</button>
-    </div>
+    <MUICard sx={{ width: 280, minWidth: 260, margin: 1, boxShadow: 3 }}>
+      <CardMedia
+         component="img"
+         image={image}
+         alt={title}
+         sx={{
+           height: "auto",
+           maxHeight: 400,
+           objectFit: "cover",
+           width: "100%",
+         }}
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {description}
+        </Typography>
+        <Button
+          variant="contained"
+          sx={{ marginTop: 2 }}
+          onClick={handleClick}
+        >
+          Нажми
+        </Button>
+      </CardContent>
+    </MUICard>
   );
 };
 
